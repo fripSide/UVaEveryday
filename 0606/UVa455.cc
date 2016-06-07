@@ -2,29 +2,27 @@
 #include <cstring>
 
 int main() {
-    const int maxn = 85;
-    //printf("%d\n", 1 % 2);
+    int n;
+    char c;
+    const int maxn = 90;
     char s[maxn];
-    int n, c;
     scanf("%d", &n);
-    scanf("%d", &c);
+    scanf("%c", &c);
     while (n--) {
         scanf("%s", s);
-        scanf("%d", &c);
-        bool seq = true;
-        int len = strlen(s);
+        scanf("%c", &c);
         int k = 0;
-        for (k = 1; k <= len / 2 + 1; k++) {
-            //printf("len/k=%d %d %d\n", len%k, len, k);
+        int len = strlen(s);
+        bool seq = true;
+        for (k = 1; k <= len / 2; ++k) {
             if (len % k == 0) {
                 seq = true;
-                for (int j = 0; j < k; j++) {
+                for (int j = 0; j < k; ++j) {
                     for (int l = k; l + k <= len; l += k) {
                         if (s[j] != s[j + l]) {
                             seq = false;
                             break;
                         }
-                        if (!seq) break;
                     }
                 }
             }
